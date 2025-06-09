@@ -1,0 +1,27 @@
+.trusted-clients {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-bottom: 60px; /* Prevents overlap with About section */
+}
+  
+  .trusted-clients h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .clients-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Items will stretch to left & right */
+    gap: 20px;
+}
+
+.client-logo {
+    height: 100px;              /* Fix only the height */
+    width: auto;                /* Let the width adjust naturally */
+    object-fit: contain;        /* Keeps entire logo visible inside its box */
+    transition: transform 0.3s ease;
+}
+ 

@@ -1,22 +1,127 @@
-nav{
+/* --- Navbar Container --- */
+.container {
     width: 100%;
-    background:  #fff;
-    color: #be1919;
-    padding: 4px 0;
+    background: #fff;
+    color: #333; /* Changed to a darker grey for better contrast */
+    padding: 10px 20px; /* Increased vertical padding for better visual spacing */
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 10;
-}
-.logo{
-    width: 180px;
-}
-nav ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 5px 20px;
-    font-size: 25px;
-}
+    z-index: 1000; /* Increased z-index to ensure it stays on top */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added a subtle shadow for depth */
+  }
+  
+  /* --- Logo Styling --- */
+  .logo {
+    width: 150px; /* Slightly reduced logo size for a more balanced look */
+    height: auto; /* Ensures aspect ratio is maintained */
+    display: block; /* Removes any extra space below the image */
+  }
+  
+  .navbar-logo-link {
+    display: flex; /* Ensures the link doesn't affect image sizing */
+    align-items: center;
+  }
+  
+  /* --- Navigation List --- */
+  nav ul {
+    list-style: none; /* Removes default bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Arranges list items horizontally */
+    align-items: center; /* Vertically aligns list items */
+    gap: 30px; /* Modern way to add space between flex items */
+  }
+  
+  nav ul li {
+    /* Removed display: inline-block as flexbox on ul handles this */
+    /* Removed margin as gap handles spacing */
+    position: relative; /* For potential future hover effects (e.g., underline) */
+  }
+  
+  nav ul li a {
+    color: #555; /* Neutral grey for links */
+    text-decoration: none; /* Removes underline */
+    font-size: 18px; /* Adjusted font size for better readability */
+    font-weight: 500; /* Slightly bolder text */
+    padding: 5px 0; /* Add padding for a larger click area */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  nav ul li a:hover {
+    color: #be1919; /* Your accent color on hover */
+  }
+  
+  /* --- Contact Button --- */
+  .btn {
+    background-color: #be1919; /* Your accent color for the button */
+    color: #fff;
+    border: none;
+    padding: 10px 25px; /* Increased padding for a more prominent button */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Adjusted button font size */
+    font-weight: 600; /* Bolder text for the button */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  }
+  
+  .btn:hover {
+    background-color: #a01010; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+  }
+  
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 768px) {
+    .container {
+      padding: 8px 15px; /* Adjust padding for smaller screens */
+    }
+  
+    .logo {
+      width: 120px; /* Smaller logo on mobile */
+    }
+  
+    nav ul {
+      gap: 15px; /* Reduce gap on smaller screens */
+    }
+  
+    nav ul li a {
+      font-size: 16px; /* Smaller font size for links */
+    }
+  
+    .btn {
+      padding: 8px 18px; /* Smaller button padding */
+      font-size: 14px; /* Smaller button font size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      flex-direction: column; /* Stack logo and nav links vertically */
+      align-items: flex-start; /* Align items to the start */
+      padding: 10px 15px;
+    }
+  
+    .logo {
+      margin-bottom: 10px; /* Space between logo and stacked nav */
+    }
+  
+    nav ul {
+      width: 100%; /* Take full width */
+      justify-content: space-around; /* Distribute links evenly */
+      flex-wrap: wrap; /* Allow links to wrap to next line */
+      gap: 10px 15px; /* Adjust gap for wrapping */
+    }
+  
+    nav ul li {
+      margin: 0; /* Reset margins */
+    }
+  
+    .btn {
+      margin-top: 10px; /* Space above button if it wraps */
+      width: 100%; /* Make button full width if needed */
+    }
+  }

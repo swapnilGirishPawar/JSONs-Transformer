@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pre-deploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "start": "yarn run dev"
   },
   "dependencies": {
     "gh-pages": "^6.3.0",
