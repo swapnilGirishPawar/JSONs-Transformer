@@ -3,7 +3,7 @@
   background-color: #DADADA;
   /* Changed text color to a dark shade for better contrast on a light background */
   color: #333; 
-  padding: 100px 20px 40px; /* Adjusted padding-top to 100px, removed duplicate padding-top */
+  padding: 80px 20px 40px; /* Adjusted padding-top to 100px, removed duplicate padding-top */
   font-family: 'Arial', sans-serif;
   line-height: 1.6; /* Improved readability for body text */
 }
@@ -22,6 +22,10 @@
   flex: 1 1 200px; /* Allows flexibility while maintaining a base width */
   min-width: 180px; /* Ensure it doesn't get too small */
   
+}
+#contact {
+  padding-top: 80px;
+  margin-top: -80px;
 }
 
 .footer-logo img {
