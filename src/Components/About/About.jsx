@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import './About.css';
 import BgRemovelogo from '../../assets/json-logo-nobg.png';
+import TrustedClients from '../TrustedClients/TrustedClients'
 
 // Google Forms entry IDs - these should ideally be in a config file or environment variables
 const FORM_ENTRY_IDS = {
