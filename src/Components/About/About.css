@@ -1,157 +1,254 @@
+/* --- Base Styles --- */
 .about-footer {
-    background-color: #DADADA;
-    color: #fff;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-    padding-top: 100px;
-  }
+  background-color: #DADADA;
+  /* Changed text color to a dark shade for better contrast on a light background */
+  color: #333; 
+  padding: 100px 20px 40px; /* Adjusted padding-top to 100px, removed duplicate padding-top */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6; /* Improved readability for body text */
+}
+
+/* --- Footer Top Section --- */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px; /* Replaced margin-bottom with gap for better spacing management */
+  margin-bottom: 30px;
+}
+
+/* --- Footer Logo Section --- */
+.footer-logo {
+  flex: 1 1 200px; /* Allows flexibility while maintaining a base width */
+  min-width: 180px; /* Ensure it doesn't get too small */
   
+}
+
+.footer-logo img {
+  max-width: 100%; /* Ensures the image scales down if container is smaller */
+  height: auto; /* Maintains aspect ratio */
+  margin-bottom: 20px; /* Added some space below the logo */
+}
+
+/* .footer-logo h2 { Removed as per React code, assuming logo is an image */
+/* font-size: 24px; */
+/* margin-bottom: 15px; */
+/* } */
+
+.social-icons {
+  display: flex; /* Arranges icons in a row */
+  gap: 20px; /* Spacing between social icons */
+}
+
+.social-icons a {
+  color: #555; /* Changed icon color for better visibility on light background */
+  font-size: 28px; /* Adjusted font size for icons - 58px was quite large */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth hover transition */
+  padding-left: 10px;
+  align-items: center;
+}
+
+.social-icons a:hover {
+  color: #e63946; /* Accent color on hover */
+}
+
+/* --- Footer Links Section --- */
+.footer-links {
+  display: flex;
+  flex: 2 1 400px;
+  justify-content: space-around;
+  gap: 20px; /* Space between link sections */
+  flex-wrap: wrap; /* Allows link sections to wrap on smaller screens */
+}
+
+.link-section {
+  min-width: 150px; /* Ensures link sections don't become too narrow */
+}
+
+.link-section h4 {
+  font-size: 18px; /* Slightly increased font size for headings */
+  margin-bottom: 15px;
+  color: #232323;
+  position: relative; /* For the underline effect */
+  padding-bottom: 5px; /* Space for the underline */
+}
+
+.link-section h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px; /* Short underline effect */
+  height: 2px;
+  background-color: #e63946; /* Accent color */
+}
+
+.link-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove default ul margin */
+}
+
+.link-section ul li {
+  margin-bottom: 8px; /* Slightly reduced margin for tighter list */
+}
+
+.link-section ul li a {
+  color: #555; /* Consistent text color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+.link-section ul li a:hover {
+  color: #e63946; /* Accent color on hover */
+}
+
+/* --- Footer Enquiry Form --- */
+.footer-enquiry {
+  flex: 1 1 300px; /* Allows flexibility for the form section */
+  min-width: 280px; /* Ensures form doesn't get too small */
+  color: #333; /* Ensuring text color is visible on light background */
+}
+
+.footer-enquiry h4 {
+  margin-bottom: 15px;
+  font-size: 20px; /* Slightly larger heading for form */
+  color: #232323;
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  margin-bottom: 12px; /* Increased spacing between form fields */
+  padding: 10px 12px; /* Slightly increased padding */
+  border: 1px solid #ccc; /* Added subtle border for input fields */
+  border-radius: 6px; /* Slightly more rounded corners */
+  font-size: 15px; /* Slightly larger font size */
+  background-color: #f9f9f9; /* Light background for input fields */
+  color: #333;
+}
+
+.enquiry-form input:focus,
+.enquiry-form textarea:focus {
+  outline: none;
+  border-color: #e63946; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(230, 57, 70, 0.3); /* Subtle shadow on focus */
+}
+
+.enquiry-form textarea {
+  resize: vertical;
+  min-height: 80px; /* Used min-height for better control */
+  max-height: 150px; /* Prevent it from getting excessively tall */
+}
+
+.send-btn {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  padding: 12px 20px; /* Increased padding for a larger button */
+  cursor: pointer;
+  border-radius: 6px; /* Consistent border-radius */
+  font-size: 16px; /* Larger font size for the button */
+  font-weight: bold; /* Make button text bold */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.send-btn:hover {
+  background-color: #c92e3a;
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+.form-status {
+  margin-top: 15px; /* Increased top margin */
+  padding: 10px; /* Added padding to the status message */
+  border-radius: 5px; /* Rounded corners for the status message */
+  font-size: 16px; /* Adjusted font size */
+  font-weight: bold;
+  text-align: center;
+  color: #08d958; /* Success color */
+  background-color: rgba(8, 217, 88, 0.1); /* Light background for success message */
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+/* --- Footer Bottom Section --- */
+.footer-bottom {
+  border-top: 1px solid #ccc; /* Lighter border for better contrast */
+  padding-top: 20px; /* Increased padding for more separation */
+  text-align: center;
+  font-size: 14px; /* Slightly larger font size */
+  color: #555; /* Consistent text color */
+}
+
+.bottom-links {
+  margin-bottom: 15px; /* Increased margin for better separation */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center links on the bottom */
+  gap: 15px; /* Space between bottom links */
+}
+
+.bottom-links a {
+  color: #555; /* Consistent text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Prevent links from breaking mid-word */
+}
+
+.bottom-links a:hover {
+  color: #e63946; /* Accent color on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
   .footer-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
-  
-  .footer-logo {
-    flex: 1 1 200px;
-  }
-  
-  .footer-logo h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    margin-right: 40px;
-    font-size: 58px;
-    text-decoration: none;
-  }
-  
-  .social-icons a:hover {
-    color: #e63946;
-  }
-  
-  .footer-links {
-    display: flex;
-    flex: 2 1 400px;
-    justify-content: space-around;
-  }
-  
-  .link-section h4 {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #232323;
-  }
-  
-  .link-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .link-section ul li {
-    margin-bottom: 10px;
-  }
-  
-  .link-section ul li a {
-    color: #706e6e;
-    text-decoration: none;
-  }
-  
-  .link-section ul li a:hover {
-    color: #232323;
-  }
-  
-  .footer-signup {
-    flex: 1 1 200px;
-  }
-  
-  .footer-signup p {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .signup-btn {
-    background-color: #e63946;
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .signup-btn:hover {
-    background-color: #c92e3a;
-  }
-  
-  .footer-bottom {
-    border-top: 1px solid #444;
-    padding-top: 15px;
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center; /* Center items when stacked */
     text-align: center;
-    font-size: 12px;
   }
-  
-  .bottom-links {
-    margin-bottom: 10px;
-  }
-  
-  .bottom-links a {
-    color: #999;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-  
-  .bottom-links a:hover {
-    color: #fff;
-  }
+
+  .footer-logo,
+  .footer-links,
   .footer-enquiry {
-    flex: 1 1 300px;
-    color: #fff;
+    flex: 1 1 100%; /* Take full width on smaller screens */
+    margin-bottom: 30px; /* Add space between stacked sections */
   }
-  
-  .footer-enquiry h4 {
-    margin-bottom: 15px;
-    font-size: 18px;
+
+  .footer-links {
+    justify-content: center; /* Center link sections when stacked */
+    gap: 40px; /* More space between link sections */
   }
-  
-  .enquiry-form {
-    display: flex;
-    flex-direction: column;
+
+  .social-icons {
+    justify-content: center; /* Center social icons */
   }
+
+  .link-section h4::after {
+    left: 50%; /* Center the underline for headings */
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-footer {
+    padding: 80px 15px 30px; /* Adjust padding for very small screens */
   
+  }
+
+  .social-icons a {
+    font-size: 24px; /* Smaller icons on very small screens */
+    margin-right: 15px;
+  }
+
   .enquiry-form input,
-  .enquiry-form textarea {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .enquiry-form textarea {
-    resize: vertical;
-    height: 80px;
-  }
-  
+  .enquiry-form textarea,
   .send-btn {
-    background-color: #e63946;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+    font-size: 14px; /* Smaller font for form elements */
+    padding: 8px 10px;
   }
-  
-  .send-btn:hover {
-    background-color: #c92e3a;
-  }
-  .form-status {
-    margin-top: 10px;
-    color: #08d958;
-    font-size: 20px;
-    transition: opacity 0.5s ease;
-    opacity: 1;
-  }
-  
+}

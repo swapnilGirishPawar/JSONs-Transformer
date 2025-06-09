@@ -8,6 +8,8 @@ const App = () => {
       <Navbar/>
       {/* <Products/>
       <Services/> */}
+      {/* Spacer Block */}
+      <div style={{ height: '1400px' }}></div> {/* 50px space */}
       <About/>
     </div>
   )

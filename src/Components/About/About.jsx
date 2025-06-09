@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './About.css';
 import BgRemovelogo from '../../assets/json-logo-nobg.png';
+
+// Google Forms entry IDs - these should ideally be in a config file or environment variables
+const FORM_ENTRY_IDS = {
+  name: 'entry.434918507',
+  phone: 'entry.529917742',
+  email: 'entry.1500510906',
+  message: 'entry.891893625',
+};
+
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfw5GD3LFyUje4F17DyqmAU64nrDqUATXllGLabwcqnTJ28Xw/formResponse';
 
 const About = () => {
   const [formData, setFormData] = useState({
@@ -12,40 +22,47 @@ const About = () => {
 
   const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // Use useCallback for handleChange to prevent unnecessary re-renders of child components
+  // if they were to memoize, though not strictly necessary for simple inputs.
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  }, []); // Empty dependency array means it's created once
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-  
-    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfw5GD3LFyUje4F17DyqmAU64nrDqUATXllGLabwcqnTJ28Xw/formResponse';
-  
+    setStatus('Sending...'); // Provide immediate feedback to the user
+
     const formBody = new FormData();
-    formBody.append('entry.434918507', formData.name);
-    formBody.append('entry.529917742', formData.phone);
-    formBody.append('entry.1500510906', formData.email);
-    formBody.append('entry.891893625', formData.message);
-  
-    fetch(formUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formBody
-    })
-      .then(() => {
-        setStatus('Response sent successfully!');
-        setFormData({ name: '', phone: '', email: '', message: '' });
-  
-        // Disappear message after 3 seconds
-        setTimeout(() => {
-          setStatus('');
-        }, 3000);
-      })
-      .catch(() => setStatus('Failed to send response. Please try again.'));
-  };
+    formBody.append(FORM_ENTRY_IDS.name, formData.name);
+    formBody.append(FORM_ENTRY_IDS.phone, formData.phone);
+    formBody.append(FORM_ENTRY_IDS.email, formData.email);
+    formBody.append(FORM_ENTRY_IDS.message, formData.message);
+
+    try {
+      // Using async/await for cleaner asynchronous code
+      await fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important for Google Forms submission
+        body: formBody
+      });
+
+      setStatus('Response sent successfully!');
+      setFormData({ name: '', phone: '', email: '', message: '' }); // Clear form
+
+      // Disappear message after 3 seconds
+      setTimeout(() => {
+        setStatus('');
+      }, 3000);
+    } catch (error) {
+      // Log the error for debugging purposes
+      console.error('Form submission error:', error);
+      setStatus('Failed to send response. Please try again.');
+    }
+  }, [formData]); // Dependency on formData ensures the latest form data is captured
 
   return (
     <footer className="about-footer">
@@ -53,14 +70,16 @@ const About = () => {
         <div className="footer-logo">
           <img src={BgRemovelogo} alt="JSONS Transformers & Conductors Logo" />
           <div className="social-icons">
-            <a href="#"><i className="fab fa-facebook-f"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
-            <a href="#"><i className="fab fa-twitter"></i></a>
-            <a href="#"><i className="fab fa-youtube"></i></a>
+            {/* Consider making these social icons configurable or map over an array */}
+            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
           </div>
         </div>
 
         <div className="footer-links">
+          {/* Reusable LinkSection component could be created if there are many such sections */}
           <div className="link-section">
             <h4>Support</h4>
             <ul>
@@ -92,6 +111,7 @@ const About = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              aria-label="Name"
             />
             <input
               type="tel"
@@ -100,6 +120,7 @@ const About = () => {
               value={formData.phone}
               onChange={handleChange}
               required
+              aria-label="Phone number"
             />
             <input
               type="email"
@@ -107,16 +128,18 @@ const About = () => {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
+              aria-label="Email address"
             />
             <textarea
               name="message"
               placeholder="Message"
               value={formData.message}
               onChange={handleChange}
+              aria-label="Message"
             ></textarea>
             <button type="submit" className="send-btn">Send</button>
           </form>
-          {status && <p className="form-status">{status}</p>}
+          {status && <p className="form-status" aria-live="polite">{status}</p>}
         </div>
       </div>
 
@@ -133,4 +156,4 @@ const About = () => {
   );
 };
 
-export default About
+export default About;
