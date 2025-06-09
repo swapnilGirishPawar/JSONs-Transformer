@@ -65,7 +65,7 @@ const About = () => {
   }, [formData]); // Dependency on formData ensures the latest form data is captured
 
   return (
-    <footer className="about-footer">
+    <footer className="about-footer" id="contact">
       <div className="footer-top">
         <div className="footer-logo">
           <img src={BgRemovelogo} alt="JSONS Transformers & Conductors Logo" />

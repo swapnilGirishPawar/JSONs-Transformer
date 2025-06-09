@@ -17,7 +17,7 @@ const Navbar = () => {
         <li><a href="#products">Products</a></li>
         <li><a href="#services">Services</a></li>
         {/* For the contact button, consider if it's a link to a section or a separate page */}
-        <li><button className='btn'>Contact Us</button></li> 
+        <li><a href="#contact" className='btn'>Contact Us</a></li> 
       </ul>
     </nav>
   );
