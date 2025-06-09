@@ -1,0 +1,14 @@
+.dev-footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f6a80b; /* Dark background */
+    color: #040404;            /* White text */
+    text-align: center;
+    padding: 10px 0;       /* Top and bottom padding */
+    font-size: 18px;
+    z-index: 999;          /* Stays on top of other elements */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* subtle top shadow */
+  }
+  
