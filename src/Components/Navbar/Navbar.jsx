@@ -1,24 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../assets/json-logo.jpg';
-import clickSound from '../../assets/sounds/click.mp3';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const audioRef = useRef(new Audio(clickSound));
-
-  const playClickSound = () => {
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch(error => {
-      console.log("Audio play failed:", error);
-    });
-  };
 
   const handleLogoClick = (e) => {
     e.preventDefault();
-    playClickSound();
     if (location.pathname !== '/') {
       navigate('/');
     }
@@ -27,7 +17,6 @@ const Navbar = () => {
 
   const handleProductsClick = (e) => {
     e.preventDefault();
-    playClickSound();
     if (location.pathname !== '/') {
       navigate('/');
       // Wait for navigation to complete before scrolling
@@ -47,7 +36,6 @@ const Navbar = () => {
 
   const handleContactClick = (e) => {
     e.preventDefault();
-    playClickSound();
     if (location.pathname !== '/') {
       navigate('/');
       // Wait for navigation to complete before scrolling
@@ -84,10 +72,6 @@ const Navbar = () => {
     }
   };
 
-  const handleNavLinkClick = () => {
-    playClickSound();
-  };
-
   return (
     <nav className='container'>
       {/* Use an anchor tag for the logo, linking to the home page (or a relevant page) */}
@@ -98,10 +82,10 @@ const Navbar = () => {
       {/* Use semantic ul for navigation links */}
       <ul>
         {/* Use anchor tags for navigation items */}
-        <li><Link to="/about-us" onClick={handleNavLinkClick}>About Us</Link></li>
+        <li><Link to="/about-us">About Us</Link></li>
         <li><a href="#" onClick={handleProductsClick}>Products</a></li>
-        <li><Link to="/services" onClick={handleNavLinkClick}>Services</Link></li>
-        <li><Link to="/projects" onClick={handleNavLinkClick}>Projects</Link></li>
+        <li><Link to="/services">Services</Link></li>
+        <li><Link to="/projects">Projects</Link></li>
         {/* For the contact button, consider if it's a link to a section or a separate page */}
         <li><a href="#" onClick={handleContactClick} className='btn'>Contact Us</a></li> 
       </ul>
