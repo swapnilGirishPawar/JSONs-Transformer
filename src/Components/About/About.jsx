@@ -30,10 +30,19 @@ const About = () => {
   // if they were to memoize, though not strictly necessary for simple inputs.
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: value
-    }));
+    // Only allow numbers for phone field
+    if (name === 'phone') {
+      const numericValue = value.replace(/[^0-9]/g, '');
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: numericValue
+      }));
+    } else {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: value
+      }));
+    }
   }, []); // Empty dependency array means it's created once
 
   const handleSubmit = useCallback(async (e) => {
@@ -121,14 +130,20 @@ const About = () => {
               value={formData.phone}
               onChange={handleChange}
               required
+              pattern="[0-9]{10}"
+              maxLength="10"
+              title="Please enter exactly 10 digits"
               aria-label="Phone number"
             />
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Email *"
               value={formData.email}
               onChange={handleChange}
+              required
+              pattern="[^@]+@[^@]+"
+              title="Please enter a valid email address containing @ symbol"
               aria-label="Email address"
             />
             <textarea
