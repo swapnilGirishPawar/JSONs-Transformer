@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
 import BgRemovelogo from '../../assets/json-logo-nobg.png';
 import TrustedClients from '../TrustedClients/TrustedClients';
@@ -15,6 +16,7 @@ const FORM_ENTRY_IDS = {
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfw5GD3LFyUje4F17DyqmAU64nrDqUATXllGLabwcqnTJ28Xw/formResponse';
 
 const About = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -85,7 +87,6 @@ const About = () => {
           <div className="link-section">
             <h4>Support</h4>
             <ul>
-              <li><a href="#">Contact Us</a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Downloads</a></li>
               <li><a href="#">Spare Parts</a></li>
@@ -94,11 +95,9 @@ const About = () => {
           <div className="link-section">
             <h4>JSONS</h4>
             <ul>
-              <li><a href="#">About JSONS</a></li>
-              <li><a href="#">JSONS Design</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/about-us'); }}>About JSONS</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/career'); }}>Careers</a></li>
               <li><a href="#">Newsroom</a></li>
-              <li><a href="#">Affiliates</a></li>
             </ul>
           </div>
         </div>

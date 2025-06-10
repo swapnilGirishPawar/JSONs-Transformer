@@ -74,7 +74,7 @@ const Navbar = () => {
       {/* Use semantic ul for navigation links */}
       <ul>
         {/* Use anchor tags for navigation items */}
-        <li><a href="#" onClick={handleAboutClick}>About Us</a></li>
+        <li><Link to="/about-us">About Us</Link></li>
         <li><a href="#" onClick={handleProductsClick}>Products</a></li>
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/projects">Projects</Link></li>

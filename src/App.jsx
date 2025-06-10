@@ -9,6 +9,8 @@ import Services from './Components/Services/Services'
 import Projects from './Components/Projects/Projects'
 import MainPage from './Components/MainPage/MainPage'
 import Statistics from './Components/Statistics/Statistics'
+import Career from './Components/Career/Career'
+import AboutUs from './Components/AboutUs/AboutUs'
 
 const MainContent = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
         <Routes>
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/*" element={<MainContent />} />
         </Routes>
       </div>
