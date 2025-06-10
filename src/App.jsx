@@ -27,7 +27,7 @@ const MainContent = () => {
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/JSONs-Transformer">
       <div>
         <Navbar/>
         <Routes>
