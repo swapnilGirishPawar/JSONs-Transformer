@@ -9,6 +9,8 @@ import Services from './Components/Services/Services'
 import Projects from './Components/Projects/Projects'
 import MainPage from './Components/MainPage/MainPage'
 import Statistics from './Components/Statistics/Statistics'
+import Career from './Components/Career/Career'
+import AboutUs from './Components/AboutUs/AboutUs'
 
 const MainContent = () => {
   return (
@@ -18,20 +20,50 @@ const MainContent = () => {
       <Statistics />
       <TrustedClients />
       <About/>
-      <DevSp/>
+    </>
+  )
+}
+
+const SharedLayout = ({ children }) => {
+  return (
+    <>
+      {children}
+      <DevSp />
     </>
   )
 }
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/JSONs-Transformer">
       <div>
         <Navbar/>
         <Routes>
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/*" element={<MainContent />} />
+          <Route path="/services" element={
+            <SharedLayout>
+              <Services />
+            </SharedLayout>
+          } />
+          <Route path="/projects" element={
+            <SharedLayout>
+              <Projects />
+            </SharedLayout>
+          } />
+          <Route path="/career" element={
+            <SharedLayout>
+              <Career />
+            </SharedLayout>
+          } />
+          <Route path="/about-us" element={
+            <SharedLayout>
+              <AboutUs />
+            </SharedLayout>
+          } />
+          <Route path="/*" element={
+            <SharedLayout>
+              <MainContent />
+            </SharedLayout>
+          } />
         </Routes>
       </div>
     </Router>

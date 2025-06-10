@@ -1,0 +1,161 @@
+.career-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 100px 20px 40px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.career-title {
+  font-size: 36px;
+  color: #00416a;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.career-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #00416a, #be1919);
+  border-radius: 2px;
+}
+
+.career-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.hiring-section {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hiring-section h2 {
+  color: #00416a;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.hiring-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.application-form {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.application-form h2 {
+  color: #00416a;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00416a;
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  border: 2px dashed #ddd;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #00416a, #be1919);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-status {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-status.error {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.form-status.success {
+  color: #28a745;
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+@media (max-width: 768px) {
+  .career-container {
+    padding: 80px 15px 30px 15px;
+  }
+
+  .career-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .hiring-section,
+  .application-form {
+    padding: 20px;
+  }
+
+  .hiring-section h2,
+  .application-form h2 {
+    font-size: 24px;
+  }
+} 
