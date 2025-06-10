@@ -20,7 +20,15 @@ const MainContent = () => {
       <Statistics />
       <TrustedClients />
       <About/>
-      <DevSp/>
+    </>
+  )
+}
+
+const SharedLayout = ({ children }) => {
+  return (
+    <>
+      {children}
+      <DevSp />
     </>
   )
 }
@@ -31,11 +39,31 @@ const App = () => {
       <div>
         <Navbar/>
         <Routes>
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/*" element={<MainContent />} />
+          <Route path="/services" element={
+            <SharedLayout>
+              <Services />
+            </SharedLayout>
+          } />
+          <Route path="/projects" element={
+            <SharedLayout>
+              <Projects />
+            </SharedLayout>
+          } />
+          <Route path="/career" element={
+            <SharedLayout>
+              <Career />
+            </SharedLayout>
+          } />
+          <Route path="/about-us" element={
+            <SharedLayout>
+              <AboutUs />
+            </SharedLayout>
+          } />
+          <Route path="/*" element={
+            <SharedLayout>
+              <MainContent />
+            </SharedLayout>
+          } />
         </Routes>
       </div>
     </Router>

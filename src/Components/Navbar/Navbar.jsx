@@ -7,6 +7,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleProductsClick = (e) => {
     e.preventDefault();
     if (location.pathname !== '/') {
@@ -67,7 +75,7 @@ const Navbar = () => {
   return (
     <nav className='container'>
       {/* Use an anchor tag for the logo, linking to the home page (or a relevant page) */}
-      <Link to="/" className="navbar-logo-link"> 
+      <Link to="/" className="navbar-logo-link" onClick={handleLogoClick}> 
         <img src={logo} alt="JSONS Transformers & Conductors Logo" className='logo' />
       </Link>
       
