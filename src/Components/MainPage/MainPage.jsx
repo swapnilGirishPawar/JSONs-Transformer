@@ -37,11 +37,14 @@ const MainPage = () => {
         </p>
       </div>
       <div className="image-carousel">
-        <img 
-          src={images[currentImageIndex]} 
-          alt={`Slide ${currentImageIndex + 1}`}
-          className="carousel-image"
-        />
+        {images.map((image, index) => (
+          <img 
+            key={index}
+            src={image} 
+            alt={`Slide ${index + 1}`}
+            className={`carousel-image ${index === currentImageIndex ? 'active' : ''}`}
+          />
+        ))}
       </div>
     </div>
   );
