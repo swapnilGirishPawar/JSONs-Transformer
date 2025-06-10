@@ -11,6 +11,8 @@ import MainPage from './Components/MainPage/MainPage'
 import Statistics from './Components/Statistics/Statistics'
 import Career from './Components/Career/Career'
 import AboutUs from './Components/AboutUs/AboutUs'
+import FAQ from './Components/FAQ/FAQ'
+import Newsroom from './Components/Newsroom/Newsroom'
 
 const MainContent = () => {
   return (
@@ -57,6 +59,16 @@ const App = () => {
           <Route path="/about-us" element={
             <SharedLayout>
               <AboutUs />
+            </SharedLayout>
+          } />
+          <Route path="/faq" element={
+            <SharedLayout>
+              <FAQ />
+            </SharedLayout>
+          } />
+          <Route path="/newsroom" element={
+            <SharedLayout>
+              <Newsroom />
             </SharedLayout>
           } />
           <Route path="/*" element={

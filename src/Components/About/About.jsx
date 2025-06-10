@@ -96,7 +96,7 @@ const About = () => {
           <div className="link-section">
             <h4>Support</h4>
             <ul>
-              <li><a href="#">FAQ</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/faq'); }}>FAQ</a></li>
               <li><a href="#">Downloads</a></li>
               <li><a href="#">Spare Parts</a></li>
             </ul>
@@ -106,7 +106,7 @@ const About = () => {
             <ul>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/about-us'); }}>About JSONS</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/career'); }}>Careers</a></li>
-              <li><a href="#">Newsroom</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/newsroom'); }}>Newsroom</a></li>
             </ul>
           </div>
         </div>
