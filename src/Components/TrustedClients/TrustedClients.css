@@ -19,9 +19,16 @@
 }
 
 .client-logo {
-    height: 100px;              /* Fix only the height */
+    height: 150px;              /* Increased height from 100px to 150px */
     width: auto;                /* Let the width adjust naturally */
     object-fit: contain;        /* Keeps entire logo visible inside its box */
     transition: transform 0.3s ease;
+}
+
+/* Specific style for the first client logo (mahavi.png) */
+.clients-logos img:first-child {
+    height: 200px;              /* Larger height specifically for the first logo */
+    width: auto;
+    object-fit: contain;
 }
  
