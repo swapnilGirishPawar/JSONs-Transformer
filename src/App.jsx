@@ -6,6 +6,7 @@ import About from './Components/About/About'
 import TrustedClients from './Components/TrustedClients/TrustedClients'
 import DevSp from './Components/developerSection/devSp'
 import Services from './Components/Services/Services'
+import Projects from './Components/Projects/Projects'
 import MainPage from './Components/MainPage/MainPage'
 import Statistics from './Components/Statistics/Statistics'
 
@@ -29,6 +30,7 @@ const App = () => {
         <Navbar/>
         <Routes>
           <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/*" element={<MainContent />} />
         </Routes>
       </div>

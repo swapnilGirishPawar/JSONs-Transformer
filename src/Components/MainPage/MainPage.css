@@ -27,6 +27,7 @@
   padding-right: 4rem;
   position: relative;
   z-index: 1;
+  scroll-margin-top: 300px;
 }
 
 .text-content h1 {
