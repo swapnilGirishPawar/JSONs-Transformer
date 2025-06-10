@@ -10,8 +10,6 @@ const ContactInfo = () => {
         <p>sales@jsonstransformers.com | md@jsonstransformers.com</p>
       </div>
       
-      <div className="red-line"></div>
-      
       <div className="branch-offices">
         <p>Branch Offices: Pune: Sr No. 402, Shyamvihar, Gokulnagar, Katraj kondhwa Road, Katraj Pune: 411046</p>
         <p>Mumbai: Plot No: B-8, Best Staff quarter, Deonor, Govandi Station Road Mumbai- 400088</p>
