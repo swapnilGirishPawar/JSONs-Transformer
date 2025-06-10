@@ -16,7 +16,7 @@ const Navbar = () => {
         {/* Use anchor tags for navigation items */}
         <li><a href="#about-us">About Us</a></li>
         <li><a href="#products">Products</a></li>
-        <li><Link to="/coming-soon">Services</Link></li>
+        <li><Link to="/services">Services</Link></li>
         {/* For the contact button, consider if it's a link to a section or a separate page */}
         <li><a href="#contact" className='btn'>Contact Us</a></li> 
       </ul>

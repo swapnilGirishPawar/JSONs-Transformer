@@ -1,0 +1,73 @@
+.contact-info-container {
+  padding: 20px 20px;
+  text-align: center;
+  background-color: #DADADA;
+  margin: 0 0 0px 0;
+}
+
+.company-info {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.company-info h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.company-info p {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin: 8px 0;
+}
+
+.red-line {
+  height: 2px;
+  background-color: #be1919;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.branch-offices {
+  margin: 20px 0;
+}
+
+.branch-offices p {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.grey-line {
+  height: 1px;
+  background-color: #999;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.contact-numbers {
+  margin-top: 20px;
+}
+
+.contact-numbers p {
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+@media (max-width: 768px) {
+  .contact-info-container {
+    padding: 30px 15px;
+  }
+
+  .company-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .company-info p,
+  .branch-offices p,
+  .contact-numbers p {
+    font-size: 1rem;
+  }
+} 

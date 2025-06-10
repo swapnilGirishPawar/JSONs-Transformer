@@ -1,9 +1,9 @@
 import React from 'react';
 import './Products.css';
-import transformerImg from '../../assets/image_1_1.jpeg';
-import testingImg from '../../assets/image_2_2.jpeg';
-import serviceImg from '../../assets/image_2_5.jpeg';
-import projectsImg from '../../assets/image_4_4.jpeg';
+import transformerImg from '../../assets/powertx.png';
+import testingImg from '../../assets/testingfac.png';
+import serviceImg from '../../assets/testing.png';
+import projectsImg from '../../assets/winsun.png';
 import qualityImg from '../../assets/iso.png';
 
 const productData = [
@@ -41,7 +41,7 @@ const productData = [
 
 function Products() {
   return (
-    <div className="products-container">
+    <div className="products-container" id="products">
       <h1 className="products-title">Our Offerings</h1>
       <div className="products-scroll-wrapper">
         {productData.map((item, index) => (

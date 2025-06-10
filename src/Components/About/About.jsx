@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import './About.css';
 import BgRemovelogo from '../../assets/json-logo-nobg.png';
-import TrustedClients from '../TrustedClients/TrustedClients'
+import TrustedClients from '../TrustedClients/TrustedClients';
+import ContactInfo from '../ContactInfo/ContactInfo';
 
 // Google Forms entry IDs - these should ideally be in a config file or environment variables
 const FORM_ENTRY_IDS = {
@@ -143,6 +144,9 @@ const About = () => {
           {status && <p className="form-status" aria-live="polite">{status}</p>}
         </div>
       </div>
+
+      <div className="red-line"></div>
+      <ContactInfo />
 
       <div className="footer-bottom">
         <div className="bottom-links">
