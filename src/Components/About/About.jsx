@@ -157,7 +157,7 @@ const About = () => {
             <ul>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/faq'); }}>FAQ</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/downloads'); }}>Downloads</a></li>
-              <li><a href="#">Spare Parts</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/coming-soon'); }}>Spare Parts</a></li>
             </ul>
           </div>
           <div className="link-section">
@@ -201,7 +201,7 @@ const About = () => {
             <div className="form-group">
               <input
                 type="email"
-                name="Email"
+                name="email"
                 placeholder="Email *"
                 value={formData.email}
                 onChange={handleChange}

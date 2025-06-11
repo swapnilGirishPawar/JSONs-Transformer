@@ -13,12 +13,14 @@
   
 .clients-logos {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    overflow-x: auto;
+    padding: 20px 0;
 }
 
 .client-logo {

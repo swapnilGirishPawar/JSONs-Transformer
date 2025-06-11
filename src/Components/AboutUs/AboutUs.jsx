@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import './AboutUs.css';
+import founderImage from '../../assets/founder.png';
+import ceoImage from '../../assets/ceo.png';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -25,14 +27,14 @@ const AboutUs = () => {
           <div className="leadership-grid">
             <div className="leadership-item">
               <div className="leadership-image">
-                <img src="src/assets/FOUNDER.jpeg" alt="Company Founder" />
+                <img src={founderImage} alt="Company Founder" />
               </div>
               <h3>Akshay Yewale</h3>
               <p className="designation">Founder and CEO</p>
             </div>
             <div className="leadership-item">
               <div className="leadership-image">
-                <img src="src/assets/CEO.jpeg" alt="Company CEO" />
+                <img src={ceoImage} alt="Company CEO" />
               </div>
               <h3>Sharvari Yewale</h3>
               <p className="designation">CEO</p>

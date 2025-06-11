@@ -15,6 +15,7 @@ import FAQ from './Components/FAQ/FAQ'
 import Newsroom from './Components/Newsroom/Newsroom'
 import TermsAndConditions from './Components/TermsAndConditions/TermsAndConditions'
 import Downloads from './Components/Downloads/Downloads'
+import ComingSoon from './Components/ComingSoon/ComingSoon'
 
 const MainContent = () => {
   return (
@@ -81,6 +82,11 @@ const App = () => {
           <Route path="/downloads" element={
             <SharedLayout>
               <Downloads />
+            </SharedLayout>
+          } />
+          <Route path="/coming-soon" element={
+            <SharedLayout>
+              <ComingSoon />
             </SharedLayout>
           } />
           <Route path="/" element={
