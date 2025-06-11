@@ -31,13 +31,23 @@ const AboutUs = () => {
               </div>
               <h3>Akshay Yewale</h3>
               <p className="designation">Founder and CEO</p>
+              <p className="leadership-description">
+                With 15+ years of experience in the power sector, Akshay founded JSONS with a vision to revolutionize 
+                the electrical equipment industry. His expertise in transformer technology and market understanding 
+                has been key to establishing JSONS as a trusted name in both domestic and international markets.
+              </p>
             </div>
             <div className="leadership-item">
               <div className="leadership-image">
-                <img src={ceoImage} alt="Company CEO" />
+                <img src={ceoImage} alt="Company CTO" />
               </div>
               <h3>Sharvari Yewale</h3>
-              <p className="designation">CEO</p>
+              <p className="designation">CTO</p>
+              <p className="leadership-description">
+                With 4 years of experience in electrical technology and having worked with leading MNCs, Sharvari 
+                brings technical expertise and innovation to JSONS. As CTO, she leads our R&D initiatives and ensures 
+                cutting-edge solutions in transformer technology and power systems.
+              </p>
             </div>
           </div>
         </section>

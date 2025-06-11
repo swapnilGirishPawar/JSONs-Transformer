@@ -165,6 +165,15 @@
   margin: 0;
 }
 
+.leadership-description {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  text-align: left;
+  padding: 0 1rem;
+}
+
 @media (max-width: 768px) {
   .aboutus-container {
     padding: 80px 15px 30px 15px;
