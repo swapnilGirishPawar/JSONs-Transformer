@@ -32,3 +32,22 @@ padding-right: 2.5%;
     border: 0;
     outline: 0;
 }
+
+/* Global styles for page containers */
+.newsroom-container,
+.aboutus-container,
+.projects-container,
+.career-container,
+.faq-container {
+    padding-top: 100px !important;
+}
+
+@media (max-width: 768px) {
+    .newsroom-container,
+    .aboutus-container,
+    .projects-container,
+    .career-container,
+    .faq-container {
+        padding-top: 80px !important;
+    }
+}

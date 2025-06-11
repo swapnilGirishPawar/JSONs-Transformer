@@ -121,33 +121,75 @@
   color: #232323;
 }
 
-.enquiry-form {
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-wrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.required-mark {
+  color: #dc3545;
+  margin-left: 4px;
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
 }
 
 .enquiry-form input,
 .enquiry-form textarea {
-  margin-bottom: 12px; /* Increased spacing between form fields */
-  padding: 10px 12px; /* Slightly increased padding */
-  border: 1px solid #ccc; /* Added subtle border for input fields */
-  border-radius: 6px; /* Slightly more rounded corners */
-  font-size: 15px; /* Slightly larger font size */
-  background-color: #f9f9f9; /* Light background for input fields */
-  color: #333;
+  width: 100%;
+  padding: 10px;
+  padding-right: 20px; /* Make space for the asterisk */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .enquiry-form input:focus,
 .enquiry-form textarea:focus {
   outline: none;
-  border-color: #e63946; /* Highlight border on focus */
-  box-shadow: 0 0 5px rgba(230, 57, 70, 0.3); /* Subtle shadow on focus */
+  border-color: #00416a;
 }
 
-.enquiry-form textarea {
-  resize: vertical;
-  min-height: 80px; /* Used min-height for better control */
-  max-height: 150px; /* Prevent it from getting excessively tall */
+.enquiry-form input.error,
+.enquiry-form textarea.error {
+  border-color: #dc3545;
+}
+
+.enquiry-form input::placeholder {
+  color: #666;
+}
+
+.enquiry-form input::placeholder::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* For required fields */
+.enquiry-form input[placeholder*="*"]::placeholder {
+  color: #666;
+}
+
+.enquiry-form input[placeholder*="*"]::placeholder::after {
+  content: " *";
+  color: #dc3545;
 }
 
 .send-btn {

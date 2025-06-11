@@ -20,6 +20,26 @@ const AboutUs = () => {
           </p>
         </section>
 
+        <section className="about-section leadership-section">
+          <h2>Our Leadership</h2>
+          <div className="leadership-grid">
+            <div className="leadership-item">
+              <div className="leadership-image">
+                <img src="src/assets/FOUNDER.jpeg" alt="Company Founder" />
+              </div>
+              <h3>Akshay Yewale</h3>
+              <p className="designation">Founder and CEO</p>
+            </div>
+            <div className="leadership-item">
+              <div className="leadership-image">
+                <img src="src/assets/CEO.jpeg" alt="Company CEO" />
+              </div>
+              <h3>Sharvari Yewale</h3>
+              <p className="designation">CEO</p>
+            </div>
+          </div>
+        </section>
+
         <section className="about-section">
           <h2>Our Mission</h2>
           <p>
