@@ -74,6 +74,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
   }
   
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
   /* --- Responsive Adjustments --- */
   @media (max-width: 768px) {
     .container {
@@ -84,44 +95,60 @@
       width: 120px; /* Smaller logo on mobile */
     }
   
+    .mobile-menu-btn {
+      display: block;
+    }
+  
     nav ul {
-      gap: 15px; /* Reduce gap on smaller screens */
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      padding: 20px;
+      gap: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    nav ul.active {
+      display: flex;
+    }
+  
+    nav ul li {
+      width: 100%;
+      text-align: center;
     }
   
     nav ul li a {
-      font-size: 16px; /* Smaller font size for links */
+      display: block;
+      padding: 10px;
+      font-size: 16px;
     }
   
     .btn {
-      padding: 8px 18px; /* Smaller button padding */
-      font-size: 14px; /* Smaller button font size */
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: 16px;
     }
   }
   
   @media (max-width: 480px) {
     .container {
-      flex-direction: column; /* Stack logo and nav links vertically */
-      align-items: flex-start; /* Align items to the start */
-      padding: 10px 15px;
+      padding: 8px 10px;
     }
   
     .logo {
-      margin-bottom: 10px; /* Space between logo and stacked nav */
+      width: 100px;
     }
   
     nav ul {
-      width: 100%; /* Take full width */
-      justify-content: space-around; /* Distribute links evenly */
-      flex-wrap: wrap; /* Allow links to wrap to next line */
-      gap: 10px 15px; /* Adjust gap for wrapping */
+      padding: 15px;
     }
   
-    nav ul li {
-      margin: 0; /* Reset margins */
-    }
-  
-    .btn {
-      margin-top: 10px; /* Space above button if it wraps */
-      width: 100%; /* Make button full width if needed */
+    nav ul li a {
+      font-size: 15px;
     }
   }

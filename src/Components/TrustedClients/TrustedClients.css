@@ -5,30 +5,70 @@
     margin-bottom: 60px; /* Prevents overlap with About section */
 }
   
-  .trusted-clients h2 {
+.trusted-clients h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
-  }
+}
   
-  .clients-logos {
+.clients-logos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Items will stretch to left & right */
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .client-logo {
-    height: 150px;              /* Increased height from 100px to 150px */
-    width: auto;                /* Let the width adjust naturally */
-    object-fit: contain;        /* Keeps entire logo visible inside its box */
+    height: 150px;
+    width: auto;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 /* Specific style for the first client logo (mahavi.png) */
 .clients-logos img:first-child {
-    height: 200px;              /* Larger height specifically for the first logo */
+    height: 200px;
     width: auto;
     object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .trusted-clients {
+        padding: 30px 15px;
+    }
+
+    .clients-logos {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .client-logo {
+        height: 120px;
+    }
+
+    .clients-logos img:first-child {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trusted-clients {
+        padding: 20px 10px;
+    }
+
+    .clients-logos {
+        gap: 25px;
+    }
+
+    .client-logo {
+        height: 100px;
+    }
+
+    .clients-logos img:first-child {
+        height: 130px;
+    }
 }
  

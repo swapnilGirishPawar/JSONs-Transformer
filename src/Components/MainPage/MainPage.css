@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 6rem 4rem 6rem;
+  padding: 120px 6rem 4rem 6rem;
   min-height: 80vh;
   background: linear-gradient(135deg, #f7f7f7 0%, #f0f0f0 100%);
   position: relative;
@@ -71,6 +71,11 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   z-index: 1;
   background-color: #FFF;
+  min-width: 300px;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-image {
@@ -82,6 +87,7 @@
   top: 0;
   left: 0;
   transition: opacity 0.4s ease-in-out;
+  background-color: #FFF;
 }
 
 .carousel-image.active {
@@ -91,35 +97,79 @@
 @media (max-width: 1024px) {
   .main-page-container {
     flex-direction: column;
-    padding: 2rem;
+    padding: 100px 2rem 2rem 2rem;
   }
 
   .text-content {
     padding-right: 0;
     margin-bottom: 2rem;
+    width: 100%;
   }
 
   .image-carousel {
     width: 100%;
     height: 400px;
+    margin-left: 0;
+    min-width: unset;
+  }
+
+  .carousel-image {
+    object-fit: cover;
   }
 }
 
 @media (max-width: 768px) {
-  .statistics-container {
-    flex-direction: column;
-    gap: 20px;
+  .main-page-container {
+    padding: 80px 1.5rem 1.5rem 1.5rem;
   }
-  
-  .stat-item {
-    padding: 10px;
-  }
-  
-  .stat-item h2 {
+
+  .text-content h1 {
     font-size: 2rem;
   }
-  
-  .stat-item p {
+
+  .text-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .text-content p {
     font-size: 1rem;
+  }
+
+  .image-carousel {
+    height: 350px;
+  }
+
+  .carousel-image {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-page-container {
+    padding: 70px 1rem 1rem 1rem;
+  }
+
+  .text-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .image-carousel {
+    height: 300px;
+  }
+
+  .carousel-image {
+    object-fit: cover;
   }
 } 

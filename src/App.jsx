@@ -11,6 +11,10 @@ import MainPage from './Components/MainPage/MainPage'
 import Statistics from './Components/Statistics/Statistics'
 import Career from './Components/Career/Career'
 import AboutUs from './Components/AboutUs/AboutUs'
+import FAQ from './Components/FAQ/FAQ'
+import Newsroom from './Components/Newsroom/Newsroom'
+import TermsAndConditions from './Components/TermsAndConditions/TermsAndConditions'
+import Downloads from './Components/Downloads/Downloads'
 
 const MainContent = () => {
   return (
@@ -59,7 +63,27 @@ const App = () => {
               <AboutUs />
             </SharedLayout>
           } />
-          <Route path="/*" element={
+          <Route path="/faq" element={
+            <SharedLayout>
+              <FAQ />
+            </SharedLayout>
+          } />
+          <Route path="/newsroom" element={
+            <SharedLayout>
+              <Newsroom />
+            </SharedLayout>
+          } />
+          <Route path="/terms-and-conditions" element={
+            <SharedLayout>
+              <TermsAndConditions />
+            </SharedLayout>
+          } />
+          <Route path="/downloads" element={
+            <SharedLayout>
+              <Downloads />
+            </SharedLayout>
+          } />
+          <Route path="/" element={
             <SharedLayout>
               <MainContent />
             </SharedLayout>

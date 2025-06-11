@@ -20,12 +20,40 @@ const Career = () => {
     resume: null
   });
 
+  const [errors, setErrors] = useState({
+    name: '',
+    phone: '',
+    email: ''
+  });
+
   const [status, setStatus] = useState('');
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const validateField = (name, value) => {
+    let error = '';
+    if (name === 'name') {
+      if (!value.trim()) {
+        error = 'Name is required';
+      }
+    } else if (name === 'phone') {
+      if (!value.trim()) {
+        error = 'Phone number is required';
+      } else if (!/^\d{10}$/.test(value.trim())) {
+        error = 'Please enter a valid 10-digit phone number';
+      }
+    } else if (name === 'email') {
+      if (!value.trim()) {
+        error = 'Email is required';
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+        error = 'Please enter a valid email address';
+      }
+    }
+    return error;
+  };
 
   const handleChange = useCallback((e) => {
     const { name, value, files } = e.target;
@@ -48,6 +76,12 @@ const Career = () => {
       setFormData(prev => ({
         ...prev,
         [name]: value
+      }));
+      // Validate field on change
+      const error = validateField(name, value);
+      setErrors(prev => ({
+        ...prev,
+        [name]: error
       }));
     }
   }, []);
@@ -77,8 +111,19 @@ const Career = () => {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      setStatus('Name and Phone Number are mandatory');
+    
+    // Validate all fields
+    const nameError = validateField('name', formData.name);
+    const phoneError = validateField('phone', formData.phone);
+    const emailError = validateField('email', formData.email);
+    
+    setErrors({
+      name: nameError,
+      phone: phoneError,
+      email: emailError
+    });
+
+    if (nameError || phoneError || emailError) {
       return;
     }
 
@@ -145,35 +190,35 @@ const Career = () => {
 
         <div className="application-form">
           <h2>Application Form</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <div className="form-group">
-              <label htmlFor="name">Name *</label>
+              <label htmlFor="name">Name <span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required
                 placeholder="Enter your full name"
               />
+              {errors.name && <p className="error-message" style={{ color: 'red', marginTop: '2px', fontSize: '0.8em', textAlign: 'left', position: 'absolute', bottom: '-20px', left: '0' }}>{errors.name}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="phone">Phone Number *</label>
+              <label htmlFor="phone">Phone Number <span style={{ color: 'red' }}>*</span></label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                required
                 placeholder="Enter your phone number"
               />
+              {errors.phone && <p className="error-message" style={{ color: 'red', marginTop: '2px', fontSize: '0.8em', textAlign: 'left', position: 'absolute', bottom: '-20px', left: '0' }}>{errors.phone}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email ID</label>
+              <label htmlFor="email">Email ID <span style={{ color: 'red' }}>*</span></label>
               <input
                 type="email"
                 id="email"
@@ -182,6 +227,7 @@ const Career = () => {
                 onChange={handleChange}
                 placeholder="Enter your email address"
               />
+              {errors.email && <p className="error-message" style={{ color: 'red', marginTop: '2px', fontSize: '0.8em', textAlign: 'left', position: 'absolute', bottom: '-20px', left: '0' }}>{errors.email}</p>}
             </div>
 
             <div className="form-group">
@@ -193,11 +239,6 @@ const Career = () => {
                 onChange={handleChange}
                 accept=".pdf"
               />
-              {formData.resume && (
-                <p className="file-info">
-                  Selected file: {formData.resume.name}
-                </p>
-              )}
             </div>
 
             <button 
