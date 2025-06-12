@@ -7,13 +7,14 @@ import ContactInfo from '../ContactInfo/ContactInfo';
 
 // Google Forms entry IDs - these should ideally be in a config file or environment variables
 const FORM_ENTRY_IDS = {
-  name: 'entry.434918507',
-  phone: 'entry.529917742',
-  email: 'entry.1500510906',
-  message: 'entry.891893625',
+  name: 'entry.1319499618',
+  phone: 'entry.1411808583',
+  email: 'entry.626721418',
+  message: 'entry.903460432',
 };
+//jsonstransformersandconductors@gmail.com
 
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfw5GD3LFyUje4F17DyqmAU64nrDqUATXllGLabwcqnTJ28Xw/formResponse';
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdhyyobBmNgkn50uGii7hN60x3foovRSIt4nEcnoaPberHxjQ/formResponse';
 
 const About = () => {
   const navigate = useNavigate();
