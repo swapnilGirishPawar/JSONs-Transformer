@@ -1,12 +1,29 @@
-# React + Vite
+# JSONs Transformer – Static Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a static website project built using **Vite + React**, created to showcase and share information about a friend’s company. It was a great learning experience in building fast, modern web applications using Vite’s lightning-fast development environment and React’s component-based architecture.
 
-Currently, two official plugins are available:
+## 🔍 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🚀 **Built With:** [Vite](https://vitejs.dev/) + [React](https://reactjs.org/)
+- 📄 **Content:** Static pages with company details, no backend involved
+- 🔧 **Testing:** Tested thoroughly by my friend **Tushar**, who works at **Hotstar**
+- ☁️ **Hosted On:**
+  - [Netlify](https://www.netlify.com/)
+  - [GitHub Pages](https://pages.github.com/)
 
-## Expanding the ESLint configuration
+## 🌐 Live Website
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👉 [jsonstransformer.netlify.app](https://jsonstransformer.netlify.app)
+
+## 💡 Learning & Takeaways
+
+This project helped me understand:
+- Setting up a Vite + React app from scratch
+- Structuring a static site with reusable components
+- Deploying projects using Netlify and GitHub Pages
+- Collaborating with peers for real-world testing and feedback
+
+## 🙌 Contributions, Questions, or Suggestions?
+
+Feel free to open issues or discussions! I’m always happy to hear feedback or ideas to improve the project.  
+Let’s connect and build better together!
