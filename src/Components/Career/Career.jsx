@@ -3,27 +3,27 @@ import './Career.css';
 
 // Google Forms entry IDs
 const FORM_ENTRY_IDS = {
-  name: 'entry.1269536868',
-  phone: 'entry.197077678',
-  email: 'entry.1103696964',
-  resumeLink: 'entry.891893625' // This will store the Drive link
+  name: 'entry.1161425511',
+  phone: 'entry.1113588831',
+  email: 'entry.1355188696',
+  resumeLink: 'entry.1463323763'
 };
 
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCnzY-gMocqwvidmvJ0C2MKC9Rx1toVfq51tQEXiyEE20ASQ/formResponse';
-const DRIVE_FOLDER_ID = 'YOUR_DRIVE_FOLDER_ID'; // Replace with your Google Drive folder ID
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSef84GWCthpezfzUC3qnTyIvOE0TcEq8myP5-xNv2jM6ofVGQ/formResponse';
 
 const Career = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    resume: null
+    resumeLink: ''
   });
 
   const [errors, setErrors] = useState({
     name: '',
     phone: '',
-    email: ''
+    email: '',
+    resumeLink: ''
   });
 
   const [status, setStatus] = useState('');
@@ -51,63 +51,29 @@ const Career = () => {
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
         error = 'Please enter a valid email address';
       }
+    } else if (name === 'resumeLink') {
+      if (!value.trim()) {
+        error = 'Resume link is required';
+      } else if (!/^https?:\/\/.+/.test(value.trim())) {
+        error = 'Please enter a valid URL';
+      }
     }
     return error;
   };
 
   const handleChange = useCallback((e) => {
-    const { name, value, files } = e.target;
-    if (name === 'resume') {
-      if (files[0]) {
-        if (files[0].size > 5 * 1024 * 1024) {
-          setStatus('File size should not exceed 5MB');
-          return;
-        }
-        if (files[0].type !== 'application/pdf') {
-          setStatus('Please upload a PDF file');
-          return;
-        }
-        setFormData(prev => ({
-          ...prev,
-          [name]: files[0]
-        }));
-      }
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-      // Validate field on change
-      const error = validateField(name, value);
-      setErrors(prev => ({
-        ...prev,
-        [name]: error
-      }));
-    }
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Validate field on change
+    const error = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
   }, []);
-
-  const uploadToDrive = async (file) => {
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('folderId', DRIVE_FOLDER_ID);
-
-      const response = await fetch('/api/upload-to-drive', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!response.ok) {
-        throw new Error('Upload failed');
-      }
-
-      const data = await response.json();
-      return data.fileUrl;
-    } catch (error) {
-      console.error('Drive upload error:', error);
-      throw error;
-    }
-  };
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
@@ -116,14 +82,16 @@ const Career = () => {
     const nameError = validateField('name', formData.name);
     const phoneError = validateField('phone', formData.phone);
     const emailError = validateField('email', formData.email);
+    const resumeLinkError = validateField('resumeLink', formData.resumeLink);
     
     setErrors({
       name: nameError,
       phone: phoneError,
-      email: emailError
+      email: emailError,
+      resumeLink: resumeLinkError
     });
 
-    if (nameError || phoneError || emailError) {
+    if (nameError || phoneError || emailError || resumeLinkError) {
       return;
     }
 
@@ -131,18 +99,11 @@ const Career = () => {
     setUploading(true);
 
     try {
-      let resumeLink = '';
-      if (formData.resume) {
-        resumeLink = await uploadToDrive(formData.resume);
-      }
-
       const formBody = new FormData();
       formBody.append(FORM_ENTRY_IDS.name, formData.name);
       formBody.append(FORM_ENTRY_IDS.phone, formData.phone);
       formBody.append(FORM_ENTRY_IDS.email, formData.email);
-      if (resumeLink) {
-        formBody.append(FORM_ENTRY_IDS.resumeLink, resumeLink);
-      }
+      formBody.append(FORM_ENTRY_IDS.resumeLink, formData.resumeLink);
 
       await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
@@ -151,18 +112,18 @@ const Career = () => {
       });
 
       setStatus('Application submitted successfully!');
-      setFormData({ name: '', phone: '', email: '', resume: null });
+      setFormData({ name: '', phone: '', email: '', resumeLink: '' });
 
       setTimeout(() => {
         setStatus('');
-        setFormData({ name: '', phone: '', email: '', resume: null });
+        setFormData({ name: '', phone: '', email: '', resumeLink: '' });
       }, 5000);
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('Failed to submit application. Please try again.');
       setTimeout(() => {
         setStatus('');
-        setFormData({ name: '', phone: '', email: '', resume: null });
+        setFormData({ name: '', phone: '', email: '', resumeLink: '' });
       }, 5000);
     } finally {
       setUploading(false);
@@ -231,14 +192,16 @@ const Career = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="resume">Resume (PDF, max 5MB)</label>
+              <label htmlFor="resumeLink">Resume Link <span style={{ color: 'red' }}>*</span></label>
               <input
-                type="file"
-                id="resume"
-                name="resume"
+                type="url"
+                id="resumeLink"
+                name="resumeLink"
+                value={formData.resumeLink}
                 onChange={handleChange}
-                accept=".pdf"
+                placeholder="Enter your resume link"
               />
+              {errors.resumeLink && <p className="error-message" style={{ color: 'red', marginTop: '2px', fontSize: '0.8em', textAlign: 'left', position: 'absolute', bottom: '-20px', left: '0' }}>{errors.resumeLink}</p>}
             </div>
 
             <button 
@@ -246,7 +209,7 @@ const Career = () => {
               className="submit-btn"
               disabled={uploading}
             >
-              {uploading ? 'Uploading...' : 'Submit Application'}
+              {uploading ? 'Sending...' : 'Submit Application'}
             </button>
           </form>
           {status && (
