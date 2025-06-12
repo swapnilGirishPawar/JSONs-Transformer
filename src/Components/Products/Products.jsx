@@ -39,10 +39,14 @@ const productData = [
   },
 ];
 
+import { Link } from "react-router-dom";
+
 function Products() {
   return (
     <div className="products-container" id="products">
-      <h1 className="products-title">Our Offerings</h1>
+      <Link to="/services">
+        <h1 className="products-title">Our Products</h1>
+      </Link>
       <div className="products-scroll-wrapper">
         {productData.map((item, index) => (
           <div className="product-card" key={index}>
