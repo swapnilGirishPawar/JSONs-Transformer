@@ -40,7 +40,7 @@ const SharedLayout = ({ children }) => {
 
 const App = () => {
   return (
-    <Router basename="/JSONs-Transformer">
+    <Router basename="">
       <div>
         <Navbar/>
         <Routes>
