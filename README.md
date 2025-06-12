@@ -1,6 +1,6 @@
 # JSONs Transformer – Static Website
 
-This is a static website project built using **Vite + React**, created to showcase and share information about a friend’s company. It was a great learning experience in building fast, modern web applications using Vite’s lightning-fast development environment and React’s component-based architecture.
+This is a static website project built using **Vite + React**, created to showcase and share information about a (Akshay Yewale - JSONS Transformers Pvt. Ltd) friend’s company. It was a great learning experience in building fast, modern web applications using Vite’s lightning-fast development environment and React’s component-based architecture.
 
 ## 🔍 About the Project
 
