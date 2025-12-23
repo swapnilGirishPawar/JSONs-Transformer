@@ -4,7 +4,7 @@ import './Projects.css';
 const projectData = [
   {
     title: "1. Windmill & Solar Projects",
-    description: "Our Project services make sure to optimize customer resources to its fullest. With clearly defined parameters from the client, we are equipped to handle any scale of Wind & solar projects from design development to turn-key EPC to project completion. Jsons Energy looks into the finer nuances of each project, especially timely execution, quality control and reducing minor complications that may arise on the field.",
+    description: "We provide expert solutions for power transmission and renewable energy projects, including WTG to Substation line erection and stringing, ensuring reliable and efficient power flow; end-to-end installation and commissioning of US substations with high safety and operational standards; tailored solar plant installations for both industrial and domestic projects, from planning to full-scale implementation; and efficient Right of Way (ROW) management to handle land access and regulatory compliance for seamless project execution.",
     type: "section",
     subsections: [
       {

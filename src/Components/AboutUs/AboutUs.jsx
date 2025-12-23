@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import './AboutUs.css';
 import founderImage from '../../assets/founder.png';
-import ceoImage from '../../assets/ceo.png';
+import ceoImage from '../../assets/ctoo.png';
+import ctImage from '../../assets/cto.png';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -16,9 +17,9 @@ const AboutUs = () => {
           <h2>Our Story</h2>
           <p>
             JSONS Transformers & Conductors is a leading manufacturer and supplier of high-quality electrical equipment, 
-            specializing in power transformers, distribution transformers, and electrical conductors. With years of 
+            specializing in power transformers, distribution transformers, and electrical insulation. With years of 
             experience in the power sector, we have established ourselves as a trusted name in the industry, serving 
-            both domestic and international markets.
+            electrical equipment industry.
           </p>
         </section>
 
@@ -27,26 +28,34 @@ const AboutUs = () => {
           <div className="leadership-grid">
             <div className="leadership-item">
               <div className="leadership-image">
-                <img src={founderImage} alt="Company Founder" />
+                <img src={founderImage} alt="Company CTO" />
               </div>
-              <h3>Akshay Yewale</h3>
-              <p className="designation">Founder and CEO</p>
+              <h3>Mr. Girish Jadhav</h3>
+              <p className="designation">Founder and MD</p>
               <p className="leadership-description">
-                With 15+ years of experience in the power sector, Akshay founded JSONS with a vision to revolutionize 
+              With 21+ years of experience in the power sector, Girish founded JSONS with a vision to revolutionize 
                 the electrical equipment industry. His expertise in transformer technology and market understanding 
-                has been key to establishing JSONS as a trusted name in both domestic and international markets.
+                has been key to establishing JSONS as a trusted name in transformer manufacturing industry.
               </p>
             </div>
             <div className="leadership-item">
               <div className="leadership-image">
-                <img src={ceoImage} alt="Company CTO" />
+                <img src={ceoImage} alt="Company Founder" />
               </div>
-              <h3>Sharvari Yewale</h3>
-              <p className="designation">CTO</p>
+              <h3>Mr. Rahul Jadhav</h3>
+              <p className="designation">Founder and CEO</p>
               <p className="leadership-description">
-                With 4 years of experience in electrical technology and having worked with leading MNCs, Sharvari 
-                brings technical expertise and innovation to JSONS. As CTO, she leads our R&D initiatives and ensures 
-                cutting-edge solutions in transformer technology and power systems.
+              With more than 15 years of experience in the power sector, Rahul founded JSONS to drive innovation in the electrical equipment industry. His profound expertise in transformer technology and keen understanding of market dynamics have played a pivotal role in establishing JSONS as a trusted partner for clients both domestically and internationally.
+              </p>
+            </div>
+            <div className="leadership-item">
+              <div className="leadership-image">
+                <img src={ctImage} alt="Company Founder" />
+              </div>
+              <h3>Mr. Akshay Yewale</h3>
+              <p className="designation">Client Relations and Liaisoning Manager</p>
+              <p className="leadership-description">
+              With 6+ years of experience in government liaisoning and regulatory affairs, Akshay has been instrumental in bridging communication between industries and authorities. His deep understanding of compliance processes, approvals, and stakeholder management has helped organizations achieve seamless operations while ensuring adherence to legal and policy frameworks.
               </p>
             </div>
           </div>
@@ -88,19 +97,19 @@ const AboutUs = () => {
           <div className="expertise-grid">
             <div className="expertise-item">
               <h3>Power Transformers</h3>
-              <p>Manufacturing high-capacity power transformers for utility and industrial applications, ensuring reliable power transmission and distribution.</p>
+              <p>Re-Manufacturing and Repairing power transformers (Upto 160MVA/220KV) for utility and industrial applications, ensuring reliable power transmission and distribution.</p>
             </div>
             <div className="expertise-item">
               <h3>Distribution Transformers</h3>
               <p>Producing efficient distribution transformers that meet various voltage requirements for commercial and residential applications.</p>
             </div>
             <div className="expertise-item">
-              <h3>Electrical Conductors</h3>
-              <p>Supplying high-quality conductors for power transmission and distribution networks, meeting international standards.</p>
+              <h3>Electrical Wind Solar Projects</h3>
+              <p>Offering turnkey solutions for solar and wind installations, ensuring efficiency and reliability for all applications.</p>
             </div>
             <div className="expertise-item">
-              <h3>Custom Solutions</h3>
-              <p>Developing tailored electrical solutions to meet specific customer requirements and project specifications.</p>
+              <h3>Tower & Distribution Line Solutions</h3>
+              <p>We specialize in designing and deploying high-quality electrical lines, from tower lines up to 220 KV to 11, 22, 33 KV DPDC & SC distribution lines.</p>
             </div>
           </div>
         </section>

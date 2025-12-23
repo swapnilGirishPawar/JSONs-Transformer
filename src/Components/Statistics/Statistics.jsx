@@ -10,8 +10,8 @@ const Statistics = () => {
   });
 
   const targetValues = {
-    installs: 784,
-    customers: 1628,
+    installs: 468,
+    customers: 1287,
     reviews: 2415,
     problems: 1982
   };

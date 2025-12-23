@@ -7,18 +7,18 @@ const ContactInfo = () => {
       <div className="company-info">
         <h2>JSONS Transformers & Conductors</h2>
         <p>Head Office: Plot No N-39, Additional MIDC, Satara-415004</p>
-        <p>sales@jsonstransformers.com | md@jsonstransformers.com</p>
+        <p>jsonstransformers@gmail.com | md@jsonstransformers.com</p>
       </div>
       
       <div className="branch-offices">
-        <p>Branch Offices: Pune: Sr No. 402, Shyamvihar, Gokulnagar, Katraj kondhwa Road, Katraj Pune: 411046</p>
-        <p>Mumbai: Plot No: B-8, Best Staff quarter, Deonor, Govandi Station Road Mumbai- 400088</p>
+        <p>Branch Offices: Pune: Venkatesh Viom, B-703, Paud Road, Kothrud, Pune-411038</p>
+        <p>Navi Mumbai: Patel Heights, Ghansoli, Navi Mumbai-400701</p>
       </div>
       
       <div className="grey-line"></div>
       
       <div className="contact-numbers">
-        <p>Mob No: 9527783759 | Ph No: 02162-240605</p>
+        <p>Mob No: 9323454648, 9527783759 | Ph No: 02162-240605</p>
       </div>
     </div>
   );
